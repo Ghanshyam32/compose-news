@@ -4,6 +4,7 @@ import com.ghanshyam.composenews.dataLayer.AppConstants
 import com.ghanshyam.composenews.dataLayer.api.ApiService
 import com.ghanshyam.composenews.dataLayer.datasource.NewsDataSource
 import com.ghanshyam.composenews.dataLayer.datasource.NewsDataSourceImplementation
+import com.ghanshyam.composenews.ui.repositories.NewsRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -57,5 +58,11 @@ class AppModule {
     @Singleton
     fun providesNewsDataSource(apiService: ApiService):NewsDataSource{
         return NewsDataSourceImplementation(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun providesNewsRepository(newsDataSource: NewsDataSource): NewsRepository{
+        return NewsRepository(newsDataSource)
     }
 }

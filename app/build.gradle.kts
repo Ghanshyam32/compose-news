@@ -78,7 +78,7 @@ dependencies {
 
     implementation(Dependencies.retrofit)
     implementation(Dependencies.okhttp)
-    implementation(Dependencies.gsonConverter)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation(Dependencies.moshi)
     implementation(Dependencies.moshiConverter)
     implementation(Dependencies.loggingInterceptor)
